@@ -1,0 +1,212 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+    display: flex;
+    height: 100vh;
+}
+
+.b-right{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* background-color: #ffffff; */
+    height: 100%;
+}
+
+
+.b-left{
+    width: 280px;
+    background-color: #08733B;
+    height: 100%;
+    padding: 30px 15px;
+}
+
+.b-ava img{
+    width: 80px;
+    height: 80px;
+    display: block;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 2px solid #ffffff;
+    margin-bottom: 15px;
+}
+
+.b-ava{
+    font-size: 20px;
+    font-weight: 600;
+    color: #feef6e;
+    margin: 0 auto;
+    text-align: center;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 20px;
+}
+
+.s-left{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+
+}
+
+.s-left-item{
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    /* Cách hai cái, muốn xài phải display */
+    gap: 15px;
+    padding: 10px 10px;
+}
+
+.s-left-item ion-icon{
+    align-items: right;
+    font-size: 17px;
+    padding-left: 5px;
+}
+
+.s-left-item{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.s-left-item:hover{
+    background-color: #feef6e;
+    border-radius: 5px;
+    font-weight: 600;
+    color: black;
+}
+
+/* Cái này là qua trang khác nó vàng chỗ đó*/
+.s-left-active{
+    background-color: #feef6e  ;
+    border-radius: 5px;
+    font-weight: 600;
+    color: black;
+}
+
+.content{
+    height: 100%;
+    overflow-y: auto;
+    flex: 1;
+    background-color: #f4f5f8;
+}
+
+
+
+
+/* Footer nè nhaaa */
+.footer{
+    background-color: #08733B;
+    text-align: center;
+    color: #ffffff;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+/*
+/* Thanh trên cùng center nhé */
+.top-center {
+    display: flex; 
+    align-items: center;
+    width: 95%;
+    height: 40px;
+    padding-left: 30px;
+    margin: 0 auto;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 20px;   
+    justify-content: space-around;
+}
+.top-center p {
+    color: #08733b;
+    font-weight: 700;
+    font-size: 30px;
+}
+/* thân web */
+.table-center{
+    display: flex;
+    width: 95%;
+    background-color: #ffffff;
+    margin: 0 auto;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    padding: 10px 10px;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+/* các button */
+.btn-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    margin: 10px auto;
+    padding-bottom: 5px;
+}       
+
+.btn-center-bt {
+    display: flex;
+    align-items: center;
+    /* background-color: brown; */
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    gap: 5px;
+    border-radius: 5px;
+    justify-content: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    color: black;
+
+}
+
+.button-them{
+    background-color: #10dc60;
+}
+
+
+
+.button-xtt{
+    background-color: #feef6e;
+}
+
+
+
+
+.cdm{
+    display: flex;
+    padding: 10px 0; 
+}
+
+table, th, td{
+    border:1px solid black;
+}
+
+.table-content{
+    border-collapse:collapse;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.table-icon button{
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.table-icon button ion-icon {
+    margin: 0 auto;
+    color: #004172;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}

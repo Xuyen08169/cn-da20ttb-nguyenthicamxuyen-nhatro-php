@@ -17,20 +17,21 @@
     </style>
 </head>
 <body>
+
     <div class="login_box">
         
         <h2></br> ĐĂNG NHẬP WEBSITE </h2>
         <div class="login_input">
-            
-            <input type="text" placeholder="Username"/>
-            <input type="password" placeholder="Mật khẩu"/>
-            
-            <div>
-                <input id="remember_pw" type="checkbox"/>
-                <label for="remember_pw">Nhớ mật khẩu</label>
-                <input type="checkbox" id="ch"/>Hiển thị mật khẩu
-            </div>
-            <button>Đăng nhập</button>
+        <form action="xulydangnhap.php" name="dangnhap" method="post">
+            <div class="login_input">
+                <input type="text" name="tendn" placeholder="Email" required>
+                <input type="password" name="matkhau" placeholder="Mật khẩu" required>
+                <div class="login_remember">
+                    <input id="remember_pw" type="checkbox">
+                    <label for="remember_pw">Nhớ mật khẩu</label>
+                </div>
+                <button type="submit" name="dn">Đăng nhập</button>
+            </form>
         </div>
         
 

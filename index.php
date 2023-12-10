@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (!isset($_SESSION["nguoidung"])) {
+    echo "<script language=javascript>
+    alert('Bạn không có quyền trên trang này!'); 
+    window.location='login.php';
+    </script>";
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
