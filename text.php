@@ -1,63 +1,69 @@
+<?php
+session_start();
+if (!isset($_SESSION["nguoidung"])) {
+    echo "<script language=javascript>
+    alert('Bạn không có quyền trên trang này!'); 
+    window.location='login.php';
+    </script>";
+}
+?>
+
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Menu Đa Cấp</title>
-    <style>
-        /* Thiết lập CSS cho menu */
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        ul li {
-            display: inline-block;
-            position: relative;
-        }
-
-        ul li a {
-            display: block;
-            padding: 10px 20px;
-            text-decoration: none;
-            color: #333;
-        }
-
-        ul li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #fff;
-            border: 1px solid #ccc;
-        }
-
-        ul li:hover > ul {
-            display: block;
-        }
-
-        ul li ul li {
-            display: block;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css_text.css">
+    <title> Quản lý nhà trọ</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </head>
-<body>
-    <ul>
-        <li><a href="#">Trang chủ</a></li>
-        <li>
-            <a href="#">Danh mục</a>
-            <ul>
-                <li><a href="#">Danh mục con 1</a></li>
-                <li><a href="#">Danh mục con 2</a></li>
-                <li><a href="#">Danh mục con 3</a></li>
+
+
+
+
+    <body>
+    <h1 > <font color="blue">Quản Lý Nhà Trọ </h1>
+           <div id="menu">
+            <ul type="square">
+                <li><a href="#"> Trang chủ</a>
+
+                <li><a href="#"> Diện tích </a>
+                    <ul type="circle">
+                        <li><a href="#"> 10</a>
+                        <li><a href="#"> 20</a>
+                        <li><a href="#"> 30</a>
+                    </ul>
+
+                <li><a href="#"> Giá cả  </a>
+                    <ul type="disc">
+                        <li><a href="#"> cao</a>
+                        <li><a href="#"> trung bìng</a>
+                        <li><a href="#"> rẻ</a>
+                    </ul>
+
+                 <li><a href="#"> Loại phòng trọ</a>
+                    <ul type="circle">
+                        <li><a href="#"> gác </a>
+                        <li><a href="#"> không gác </a>
+                        <li><a href="#"> Nhà xe</a>
+                    </ul>
+                 <li><a href="#"> Phường </a>
+                    <ul type="circle">
+                        <li><a href="#"> p1</a>
+                        <li><a href="#"> p2</a>
+                        <li><a href="#"> p3</a>
+                    </ul>
+
+
             </ul>
-        </li>
-        <li>
-            <a href="#">Sản phẩm</a>
-            <ul>
-                <li><a href="#">Sản phẩm con 1</a></li>
-                <li><a href="#">Sản phẩm con 2</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Liên hệ</a></li>
-    </ul>
-</body>
+           </div>
+    </body>
+
+
+
+
+
 </html>

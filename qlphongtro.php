@@ -9,7 +9,7 @@ include("header_admin.php");
     <div class="table-center">
         <div class="btn-center">
             <div class="btn-center-bt">
-                <a href="#" class="button button-them">
+                <a href="them_phongtro.php" class="button button-them">
                     <ion-icon name="add-outline"></ion-icon>
                     <p>Thêm phòng trọ</p>
                 </a>
@@ -48,7 +48,7 @@ include("header_admin.php");
                         $trangthai = mysqli_fetch_array($kq2);
 
                         $loais = $row["maloai"];
-                        $sql3 = "SELECT * FROM loaiphongtro WHERE maloai='" . $mloais . "'";
+                        $sql3 = "SELECT * FROM loaiphongtro WHERE maloai='" . $loais . "'";
                         $kq3 = mysqli_query($conn, $sql3) or die("Không thể xuất thông tin người dùng " . mysqli_error());
                         $loai = mysqli_fetch_array($kq3);
 
@@ -60,21 +60,21 @@ include("header_admin.php");
 
                         echo "<tr>";
                         echo"<td width='3%'><input type='checkbox'></td>";
-                        echo "<td> ".$row["mabd"]."</td>";
-                        $usern=$row["mabd"]; // Gán dữ liệu cột username vào biến $usern echo "<td> ".$row["password"]."</td>";
+                        echo "<td> ".$row["mapt"]."</td>";
+                        $usern=$row["mapt"]; // Gán dữ liệu cột username vào biến $usern echo "<td> ".$row["password"]."</td>";
                         echo "<td> " . $trangthai["tentt"] . "</td>";
                         echo "<td> " . $loai["tenloai"] . "</td>";/// khóa ngoại
                         echo "<td> " . $nhatro["tennt"] . "</td>";///
                         echo "<td class='bang'> ".$row["mota"]."</td>";
-                        echo "<td><img src= '".$row["giapt"]."' height='50' width='50'></td>";
+                        echo "<td class='bang'> ".$row["giapt"]."</td>";
                         echo "<td class='bang'>".$row["dientichpt"]."</td>";
                         echo "<td class='bang'>".$row["ghichu"]."</td>";
                         ///////////
 
 
                         echo "<td class='bang'>
-                        <a href='sua.php?user=$usern'><ion-icon name='create-outline'></ion-icon></a> 
-                        <a href='xoa.php?user=$usern'><ion-icon name='trash-outline'></ion-icon></a>
+                        <a href='sua_phongtro.php?user=$usern'><ion-icon name='create-outline'></ion-icon></a> 
+                        <a href='xoa_phongtro.php?user=$usern'><ion-icon name='trash-outline'></ion-icon></a>
                         </td>";//Thêm cột sửa tương ứng + truyền biến user (chứa thông tin về tên đăng nhập) sang file sua.php
                         
                     }

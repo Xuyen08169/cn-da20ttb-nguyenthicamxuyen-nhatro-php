@@ -9,9 +9,9 @@ include("header_admin.php");
     <div class="table-center">
         <div class="btn-center">
             <div class="btn-center-bt">
-                <a href="#" class="button button-them">
+                <a href="them_danhgia.php" class="button button-them">
                     <ion-icon name="add-outline"></ion-icon>
-                    <p>Thêm các bình luận</p>
+                    <p>Thêm các đánh giá</p>
                 </a>
                 <a href="#" class="button button-xtt">
                     <ion-icon name="trash-outline"></ion-icon>
@@ -49,10 +49,10 @@ include("header_admin.php");
                         $kq3 = mysqli_query($conn, $sql3) or die("Không thể xuất thông tin người dùng " . mysqli_error());
                         $nhatro = mysqli_fetch_array($kq3);
 
-                        $saos = $row["masao"];
-                        $sql3 = "SELECT * FROM loaisao WHERE masao='" . $saos . "'";
+                        $masao = $row["masao"];
+                        $sql3 = "SELECT * FROM loaisao WHERE masao='" . $masao . "'";
                         $kq3 = mysqli_query($conn, $sql3) or die("Không thể xuất thông tin người dùng " . mysqli_error());
-                        $sao = mysqli_fetch_array($kq3);
+                        $masao = mysqli_fetch_array($kq3);
 
 
                         echo "<tr>";
@@ -62,15 +62,15 @@ include("header_admin.php");
                         //echo "<td> " . $nguoidung["tennd"] . "</td>";/// khóa ngoại
                         echo "<td> " . $nhatro["mant"] . "</td>";
                         echo "<td> " . $nhatro["tennt"] . "</td>";
-                        echo "<td> " . $sao["tensao"] . "</td>";///
+                        echo "<td> " . $masao["tensao"] . "</td>";///
                         echo "<td class='bang'> ".$row["binhluan"]."</td>";
                         
                         ///////////
 
 
                         echo "<td class='bang'>
-                        <a href='sua.php?user=$usern'><ion-icon name='create-outline'></ion-icon></a> 
-                        <a href='xoa.php?user=$usern'><ion-icon name='trash-outline'></ion-icon></a>
+                        <a href='sua_danhgia.php?user=$usern'><ion-icon name='create-outline'></ion-icon></a> 
+                        <a href='xoa_danhgia.php?user=$usern'><ion-icon name='trash-outline'></ion-icon></a>
                         </td>";//Thêm cột sửa tương ứng + truyền biến user (chứa thông tin về tên đăng nhập) sang file sua.php
                         
                     }

@@ -16,69 +16,73 @@ if (!isset($_SESSION["nguoidung"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="csadmin.css">
+    <link rel="stylesheet" type="text/css" href="css_index.css">
     <title> Quản lý nhà trọ</title>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </head>
 
-<header>
 
+<header>
+<h1 > <font color="blue">Quản Lý Nhà Trọ </h1>
     <body>
-        <h1> Quản lý nhà trọ </h1>
+      
+
+        <td>
+            <font color="#FF0000">
+                <marquee>Tìm nhà trọ cấp tốc ! uy tính, chất lượng</marquee>
+            </font>
+        </td>
+        </tr>
 
         <div>
             <input class="input" type="type" placeholder="Tìm kiếm..." />
-
-            <ul>
-                <ion-icon name="home-outline"></ion-icon>
+            <ul class="nav">
                 <li><a href="#">Trang chủ</a></li>
+
+
                 <li>
-                    <a href="#">Diện tích </a>
+                    <a href="#"> Diện tích </a>
                     <ul>
-                        <li><a href="#">Nhỏ</a></li>
-                        <li><a href="#">Trung bình</a></li>
                         <li><a href="#">Lớn </a></li>
-                    </ul>
-                </li>
-
-
-                <li>
-                    
-                    <a href="#"><ion-icon name="cash-outline"></ion-icon> Giá </a>
-                    
-                        
-                    
-                    <ul>
-                        <li><a href="#"> 500k-700k </a></li>
-                        <li><a href="#">700k-1tr</a></li>
-                        <li><a href="#">1tr- 1500tr</a></li>
+                        <li><a href="#">Nhỏ </a></li>
+                        <li><a href="#">Trung bình</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="#"> <ion-icon name="pricetags-outline"></ion-icon>Loại Phòng Trọ</a>
+                    <a href="#"> Giá phòng trị </a>
                     <ul>
-                        <li><a href="#"> Có gác</a></li>
-                        <li><a href="#">Không gác </a></li>
-                        <li><a href="#">Có nhà xe riêng </a></li>
+                        <li><a href="#">A </a></li>
+                        <li><a href="#">B </a></li>
+                        <li><a href="#">C</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="#">Phường </a>
+                    <a href="#"> Phường</a>
                     <ul>
-                        <li><a href="#"> Phường 1</a></li>
-                        <li><a href="#">Phường 2</a></li>
-                        <li><a href="#">Phường 3</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"> Loại phòng trọ</a>
+                    <ul>
+                        <li><a href="#">cccc</a></li>
+                        <li><a href="#">aaaaaa </a></li>
+                        <li><a href="#">bbbbbbb</a></li>
                     </ul>
                 </li>
 
 
 
-
-                <li><a href="#">Liên hệ</a></li>
             </ul>
     </body>
 </header>
+
+
+
 
 </html>
