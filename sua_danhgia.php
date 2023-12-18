@@ -1,4 +1,3 @@
-
 <?php
 include("header_admin.php");
 
@@ -28,19 +27,32 @@ $row = mysqli_fetch_array($kq);
             </div>
         </div>
 
-       
+
         <div class="table">
             <div> <label> Mã nhà trọ: </label>
                 <input type="text" name="mant" value="<?php echo $row["mant"]; ?>" readonly>
             </div>
         </div>
 
-
         <div class="table">
             <div> <label> Mã sao: </label>
-                <input type="text" name="masao" value="<?php echo $row["masao"]; ?>">
+            <select name="masao">
+                        <?php
+                $sql = "SELECT masao, tensao FROM loaisao";
+                $kq = mysqli_query($conn, $sql) or die("Không thể thêm trạng thái: " . mysqli_error($conn));
+                while ($row_sao = mysqli_fetch_assoc($kq)) {
+                    $masao = $row_sao['masao'];
+                    $tensao = $row_sao['tensao'];
+                    $selected = ($masao == $row["masao"]) ? "selected" : "";
+                    echo "<option value=\"$masao\" $selected>$tensao</option>";
+                    
+                    }
+                ?>
+                    </select>
             </div>
         </div>
+
+
 
         <div class="table">
             <div> <label> Bình luận: </label>
@@ -48,7 +60,7 @@ $row = mysqli_fetch_array($kq);
             </div>
         </div>
 
-       
+
 
 
         <div class="table">
@@ -63,3 +75,5 @@ $row = mysqli_fetch_array($kq);
 <?php
 include("footer_admin.php");
 ?>
+
+

@@ -19,14 +19,66 @@ if (!isset($_SESSION["nguoidung"])) {
     <link rel="stylesheet" type="text/css" href="css_index.css">
     <title> Quản lý nhà trọ</title>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+
+    <style>
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 14px 18px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+    </style>
 </head>
 
 
 <header>
-<h1 > <font color="blue">Quản Lý Nhà Trọ </h1>
-    <body>
-      
+    <h1>
+        <font color="blue">Quản Lý Nhà Trọ
+    </h1>
 
+    <body>
+
+        <picture>
+            
+            <source media="(min-width: 465px)" srcset="h1.jpg">
+            <img src="h1.jpg">
+        </picture>
         <td>
             <font color="#FF0000">
                 <marquee>Tìm nhà trọ cấp tốc ! uy tính, chất lượng</marquee>
@@ -40,45 +92,52 @@ if (!isset($_SESSION["nguoidung"])) {
                 <li><a href="#">Trang chủ</a></li>
 
 
-                <li>
-                    <a href="#"> Diện tích </a>
-                    <ul>
-                        <li><a href="#">Lớn </a></li>
-                        <li><a href="#">Nhỏ </a></li>
-                        <li><a href="#">Trung bình</a></li>
-                    </ul>
-                </li>
+                <div class="dropdown">
+                    <button class="dropbtn">Phân loại</button>
+                    <div class="dropdown-content">
+                        <a href="#"> loại đặt biệt</a>
+                        <a href="#"> loại bình thường </a>
+                        <a href="#"> loại ngon nhất</a>
+                    </div>
+                </div>
 
-                <li>
-                    <a href="#"> Giá phòng trị </a>
-                    <ul>
-                        <li><a href="#">A </a></li>
-                        <li><a href="#">B </a></li>
-                        <li><a href="#">C</a></li>
-                    </ul>
-                </li>
+                <div class="dropdown">
+                    <button class="dropbtn">Phân loại</button>
+                    <div class="dropdown-content">
+                        <a href="#"> loại đặt biệt</a>
+                        <a href="#"> loại bình thường </a>
+                        <a href="#"> loại ngon nhất</a>
+                    </div>
 
-                <li>
-                    <a href="#"> Phường</a>
-                    <ul>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                    </ul>
-                </li>
+                </div>
 
-                <li>
-                    <a href="#"> Loại phòng trọ</a>
-                    <ul>
-                        <li><a href="#">cccc</a></li>
-                        <li><a href="#">aaaaaa </a></li>
-                        <li><a href="#">bbbbbbb</a></li>
-                    </ul>
-                </li>
+                <div class="dropdown">
+                    <button class="dropbtn">Phân loại</button>
+                    <div class="dropdown-content">
+                        <a href="#"> loại đặt biệt</a>
+                        <a href="#"> loại bình thường </a>
+                        <a href="#"> loại ngon nhất</a>
+                    </div>
+
+                </div>
 
 
+                <div class="dropdown">
+                    <button class="dropbtn">Phân loại</button>
+                    <div class="dropdown-content">
+                        <a href="#"> loại đặt biệt</a>
+                        <a href="#"> loại bình thường </a>
+                        <a href="#"> loại ngon nhất</a>
+                    </div>
 
-            </ul>
+                </div>
+
+
+
+
+
+
+
     </body>
 </header>
 

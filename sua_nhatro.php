@@ -28,10 +28,23 @@ $row = mysqli_fetch_array($kq);
         </div>
 
         <div class="table">
-            <div> <label> Mã phường: </label>
-                <input type="text" name="maphuong" value="<?php echo $row["maphuong"]; ?>">
+            <div> <label> Mã phường: </label><!-- nếu muốn sổ bản khóa ngoại-->
+            <select name="maphuong">
+                        <?php
+                $sql = "SELECT maphuong, tenphuong FROM phuong";
+                $kq = mysqli_query($conn, $sql) or die("Không thể thêm trạng thái: " . mysqli_error($conn));
+                while ($row_phuong = mysqli_fetch_assoc($kq)) {
+                    $maphuong = $row_phuong['maphuong'];
+                    $tenphuong = $row_phuong['tenphuong'];
+                    $selected = ($maphuong == $row["maphuong"]) ? "selected" : "";
+                    echo "<option value=\"$maphuong\" $selected>$tenphuong</option>";
+                    
+                    }
+                ?>
+                    </select>
             </div>
         </div>
+
 
         <div class="table">
             <div> <label> Tên nhà trọ: </label>
