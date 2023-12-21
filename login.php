@@ -23,6 +23,7 @@
         <h2></br> ĐĂNG NHẬP WEBSITE </h2>
         <div class="login_input">
         <form action="xulydangnhap.php" name="dangnhap" method="post">
+       
             <div class="login_input">
                 <input type="text" name="tendn" placeholder="Email" required>
                 <input type="password" name="matkhau" placeholder="Mật khẩu" required>

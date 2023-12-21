@@ -30,21 +30,61 @@ $row = mysqli_fetch_array($kq);
 
         <div class="table">
             <div> <label> Mã trạng thái: </label>
-                <input type="text" name="matt" value="<?php echo $row["matt"]; ?>">
+            <select name="matt">
+                        <?php
+                $sql = "SELECT matt, tentt FROM trangthai";
+                $kq = mysqli_query($conn, $sql) or die("Không thể thêm trạng thái: " . mysqli_error($conn));
+                while ($row_tt = mysqli_fetch_assoc($kq)) {
+                    $matt = $row_tt['matt'];
+                    $tentt = $row_tt['tentt'];
+                    $selected = ($matt == $row["matt"]) ? "selected" : "";
+                    echo "<option value=\"$matt\" $selected>$tentt</option>";
+                    
+                    }
+                ?>
+                    </select>
             </div>
         </div>
 
+
         <div class="table">
-            <div> <label> Mã loại: </label>
-                <input type="text" name="maloai" value="<?php echo $row["maloai"]; ?>">
+            <div> <label> Mã loai: </label>
+            <select name="maloai">
+                        <?php
+                $sql = "SELECT maloai, tenloai FROM loaiphongtro";
+                $kq = mysqli_query($conn, $sql) or die("Không thể thêm loại phòng trọ: " . mysqli_error($conn));
+                while ($row_loai = mysqli_fetch_assoc($kq)) {
+                    $maloai = $row_loai['masao'];
+                    $tenloai = $row_loai['tensao'];
+                    $selected = ($maloai == $row["maloai"]) ? "selected" : "";
+                    echo "<option value=\"$maloai\" $selected>$tenloai</option>";
+                    
+                    }
+                ?>
+                    </select>
             </div>
         </div>
+
 
         <div class="table">
             <div> <label> Mã nhà trọ: </label>
-                <input type="text" name="mant" value="<?php echo $row["mant"]; ?>">
+            <select name="mant">
+                        <?php
+                $sql = "SELECT mant, tennt FROM nhatro";
+                $kq = mysqli_query($conn, $sql) or die("Không thể thêm nhà trọ: " . mysqli_error($conn));
+                while ($row_nt = mysqli_fetch_assoc($kq)) {
+                    $mant = $row_nt['mant'];
+                    $tennt = $row_nt['tennt'];
+                    $selected = ($mant == $row["mant"]) ? "selected" : "";
+                    echo "<option value=\"$mant\" $selected>$tennt</option>";
+                    
+                    }
+                ?>
+                    </select>
             </div>
         </div>
+
+
         <div class="table">
             <div> <label> Mô tả: </label>
                 <input type="text" name="mota" value="<?php echo $row["mota"]; ?>">

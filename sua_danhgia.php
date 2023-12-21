@@ -39,7 +39,7 @@ $row = mysqli_fetch_array($kq);
             <select name="masao">
                         <?php
                 $sql = "SELECT masao, tensao FROM loaisao";
-                $kq = mysqli_query($conn, $sql) or die("Không thể thêm trạng thái: " . mysqli_error($conn));
+                $kq = mysqli_query($conn, $sql) or die("Không thể thêm sao: " . mysqli_error($conn));
                 while ($row_sao = mysqli_fetch_assoc($kq)) {
                     $masao = $row_sao['masao'];
                     $tensao = $row_sao['tensao'];

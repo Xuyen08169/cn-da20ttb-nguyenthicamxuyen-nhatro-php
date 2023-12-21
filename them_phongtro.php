@@ -101,7 +101,7 @@ include("header_admin.php");
 
 
 
-    </div>
+
 </form>
 <?php
 include("footer_admin.php");

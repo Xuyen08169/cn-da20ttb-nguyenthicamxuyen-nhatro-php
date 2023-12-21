@@ -16,132 +16,116 @@ if (!isset($_SESSION["nguoidung"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css_index.css">
+    <link rel="stylesheet" href="cs_index.css">
     <title> Quản lý nhà trọ</title>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 
 
-    <style>
-    .dropbtn {
-        background-color: #4CAF50;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-    }
 
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-
-    .dropdown-content a {
-        color: black;
-        padding: 14px 18px;
-        text-decoration: none;
-        display: block;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #f1f1f1
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    .dropdown:hover .dropbtn {
-        background-color: #3e8e41;
-    }
-    </style>
 </head>
 
+<body>
+    <div class="t1">
 
-<header>
-    <h1>
-        <font color="blue">Quản Lý Nhà Trọ
-    </h1>
 
-    <body>
+        <h1>
+            <font color="blue">Quản Lý Nhà Trọ
+        </h1>
 
-        <picture>
-            
-            <source media="(min-width: 465px)" srcset="h1.jpg">
-            <img src="h1.jpg">
-        </picture>
-        <td>
+
+        <div>
+
             <font color="#FF0000">
                 <marquee>Tìm nhà trọ cấp tốc ! uy tính, chất lượng</marquee>
             </font>
-        </td>
-        </tr>
+
+        </div>
 
         <div>
             <input class="input" type="type" placeholder="Tìm kiếm..." />
-            <ul class="nav">
-                <li><a href="#">Trang chủ</a></li>
+        </div>
 
+        <div class="menu">
+            <div class=" dropdown">
+                <ion-icon name="home-outline"></ion-icon>
+                <a class=" dropbtn" href="#">Trang chủ</a>
+            </div>
 
-                <div class="dropdown">
-                    <button class="dropbtn">Phân loại</button>
-                    <div class="dropdown-content">
-                        <a href="#"> loại đặt biệt</a>
-                        <a href="#"> loại bình thường </a>
-                        <a href="#"> loại ngon nhất</a>
-                    </div>
+            <div class="dropdown">
+                <button class="dropbtn"> Diện tích </button>
+                <div class="dropdown-content">
+                    <a href="#"> Phòng 10m2</a>
+                    <a href="#"> Phòng 15m2</a>
+                    <a href="#"> Phòng 20m2</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn"> Giá nhà trọ</button>
+                <div class="dropdown-content">
+                    <a href="#"> 500 ngìn - 700 nghìn</a>
+                    <a href="#"> 700 nghìn - 1 triệu </a>
+                    <a href="#"> 1 triệu - 1 triệu 500 nghìn</a>
                 </div>
 
-                <div class="dropdown">
-                    <button class="dropbtn">Phân loại</button>
-                    <div class="dropdown-content">
-                        <a href="#"> loại đặt biệt</a>
-                        <a href="#"> loại bình thường </a>
-                        <a href="#"> loại ngon nhất</a>
-                    </div>
+            </div>
 
+            <div class="dropdown">
+                <button class="dropbtn"> Loại phòng trọ</button>
+                <div class="dropdown-content">
+                    <a href="#"> Có gác lửng</a>
+                    <a href="#"> Không có gác </a>
+                    <!-- <a href="#"> loại ngon nhất</a> -->
                 </div>
 
-                <div class="dropdown">
-                    <button class="dropbtn">Phân loại</button>
-                    <div class="dropdown-content">
-                        <a href="#"> loại đặt biệt</a>
-                        <a href="#"> loại bình thường </a>
-                        <a href="#"> loại ngon nhất</a>
-                    </div>
+            </div>
 
+
+            <div class="dropdown">
+                <button class="dropbtn">Phường </button>
+                <div class="dropdown-content">
+                    <a href="#"> Phường 1</a>
+                    <a href="#"> Phường 2</a>
+                    <a href="#"> Phường 3</a>
+                    <a href="#"> Phường 4</a>
+                    <a href="#"> Phường 5</a>
+                    <a href="#"> Phường 6</a>
+                    <a href="#"> Phường 7</a>
+                    <a href="#"> Phường 8</a>
+                    <a href="#"> Phường 9</a>
                 </div>
 
+            </div>
 
-                <div class="dropdown">
-                    <button class="dropbtn">Phân loại</button>
-                    <div class="dropdown-content">
-                        <a href="#"> loại đặt biệt</a>
-                        <a href="#"> loại bình thường </a>
-                        <a href="#"> loại ngon nhất</a>
-                    </div>
+            <div class=" dropdown">
+                <ion-icon name="information-circle-outline"></ion-icon>
+                <a class=" dropbtn" href="#">Hỗ trợ </a>
+            </div>
 
-                </div>
 
+        </div>
 
 
 
 
 
 
-    </body>
-</header>
+
+    </div>
+
+    <div class="ct">
+
+
+    </div>
+
+
+</body>
 
 
 
+
+<!-- <div class="footer">
+    <p>Bản quyền thuộc @CemXien</p>
+</div> -->
 
 </html>
