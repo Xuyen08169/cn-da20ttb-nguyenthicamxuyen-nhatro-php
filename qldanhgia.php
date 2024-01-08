@@ -9,10 +9,10 @@ include("header_admin.php");
     <div class="table-center">
         <div class="btn-center">
             <div class="btn-center-bt">
-                <a href="them_danhgia.php" class="button button-them">
+                <!-- <a href="them_danhgia.php" class="button button-them">
                     <ion-icon name="add-outline"></ion-icon>
                     <p>Thêm các đánh giá</p>
-                </a>
+                </a> -->
                 <a href="#" class="button button-xtt">
                     <ion-icon name="trash-outline"></ion-icon>
                     <p>Xóa tất cả</p>
@@ -69,7 +69,7 @@ include("header_admin.php");
 
 
                         echo "<td class='bang'>
-                        <a href='sua_danhgia.php?user=$usern'><ion-icon name='create-outline'></ion-icon></a> 
+                       
                         <a href='xoa_danhgia.php?user=$usern'><ion-icon name='trash-outline'></ion-icon></a>
                         </td>";//Thêm cột sửa tương ứng + truyền biến user (chứa thông tin về tên đăng nhập) sang file sua.php
                         

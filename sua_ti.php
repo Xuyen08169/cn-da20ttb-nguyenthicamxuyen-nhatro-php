@@ -17,28 +17,35 @@ $row = mysqli_fetch_array($kq);
         <div class="top-center">
             <p> QUẢN LÝ NHÀ TRỌ</p>
         </div>
-        <div class="table-center">
-            <label> Thêm tiện ích</label>
+        <div>
+            <label> Sữa tiện ích</label>
         </div>
 
 
-        <div class="table">
-            <div> <label> Mã tiện ích: </label><!---->
+        <div class="table-center">
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
+            <div> <label> Mã tiện ích: </label>
                 <input type="text" name="mati" value="<?php echo $row["mati"]; ?>" readonly>
             </div>
         </div>
+            </div>
+        </div>
 
-        <div class="table">
+        <div class="table-center">
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
             <div> <label> Tên tiện ích : </label>
                 <input type="text" name="tenti" value="<?php echo $row["tenti"]; ?>">
             </div>
         </div>
-
-        <div class="table">
-
-            <input type="submit" name="luu" value="Lưu">
+            </div>
         </div>
 
+        <div class="txt-btn">
+            <input class="txt-btn-luu" type="submit" name="luu" value="Lưu lại" />
+            <input class="txt-btn-luu" type="reset" name="huy" value=" Hủy bỏ" href="qltienich.php" />
+        </div>
 
 
     </div>

@@ -13,9 +13,14 @@ $dientichpt = $_POST["dientichpt"];
 $ghichu = $_POST["ghichu"];
 
 
+$duongdan = "./hinhanh/"; // Thư mục lưu trữ hình ảnh, bạn cần tạo thư mục này trong dự án của mình
+$duongdan = $duongdan . basename($_FILES["anhpt"]["name"]);
+move_uploaded_file($_FILES["anhpt"]["tmp_name"], $duongdan);
+$anhpt = $duongdan;
+
 // Thêm bộ môn mới vào CSDL với khóa chính tự động tăng
-$sql = "INSERT INTO phongtro (mapt, matt, maloai, mant, mota, giapt, dientichpt, ghichu) 
-VALUES ('$mapt', '$matt', '$maloai', '$mant', '$mota', '$giapt', '$dientichpt', '$ghichu')";
+$sql = "INSERT INTO phongtro (mapt, matt, maloai, mant, mota, giapt, dientichpt, ghichu, anhpt) 
+VALUES ('$mapt', '$matt', '$maloai', '$mant', '$mota', '$giapt', '$dientichpt', '$ghichu', '$anhpt')";
 $kq = mysqli_query($conn, $sql) or die("Không thể thêm phòng trọ: " . mysqli_error($conn));
 
 echo "<script language=javascript>

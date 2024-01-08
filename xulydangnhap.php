@@ -16,32 +16,39 @@
     include("ketnoi.php");
     $user = $_POST["tendn"]; 
     $pass = $_POST["matkhau"];
-    $sql = "select * from nguoidung where emailnd='" .$user. "' and matkhaund='" .$pass. "'";
+    $sql_nd = "select * from nguoidung where emailnd='" .$user. "' and matkhaund ='" .$pass. "'";
+    $kq_nd = mysqli_query($conn, $sql_nd) or die("Không thể mở bảng người dùng".mysqli_error()); // thực thi câu lệnh SQL 
 
+    $sql_ad = "select * from admin where emailadmin='" .$user. "' and passwordadmin ='" .$pass. "'";
+    $kq_ad = mysqli_query($conn, $sql_ad) or die("Không thể mở bảng admin".mysqli_error()); // thực thi câu lệnh SQL
     
-    $kq = mysqli_query($conn, $sql) or die("Không thể mở bảng admin".mysqli_error()); // thực thi câu lệnh SQL 
-    if (mysqli_fetch_array($kq)) {
+    $sql_ct = "select * from chutro where emailct='" .$user. "' and matkhauct ='" .$pass. "'";
+    $kq_ct = mysqli_query($conn, $sql_ct) or die("Không thể mở bảng chủ trọ".mysqli_error()); // thực thi câu lệnh SQL
+    if (mysqli_fetch_array($kq_nd)) {
         $_SESSION['nguoidung'] = $user;
         echo ("<script language=javascript>
                 // alert('Đăng nhập thành công');
                 window.location='index.php';
                 </script> ");
-    } else {
-        $sql2 = "select * from admin where emailadmin='" .$user. "' and matkhauadmin ='" .$pass. "'";
-        $kq2 = mysqli_query($conn, $sql2) or die("Không thể mở bảng admin".mysqli_error()); // thực thi câu lệnh SQL
-        if (mysqli_fetch_array($kq2)) {
+    } else if(mysqli_fetch_array($kq_ad)){
             $_SESSION["admin"] = $user;
             echo ("<script language=javascript>
                     // alert('Đăng nhập thành công');
                     window.location='admin.php';
                     </script>");
-        } else {
+    }else if(mysqli_fetch_array($kq_ct)){
+        $_SESSION["chutro"] = $user;
+        echo ("<script language=javascript>
+                // alert('Đăng nhập thành công');
+                window.location='chutro.php';
+                </script>");  
+    } 
+    else {
             echo ("<script language=javascript>
                     alert('Sai tên đăng nhập hoặc mật khẩu');
                     window.location='login.php';
                     </script> ");
         }
-    }
     ?>
 </body>
 

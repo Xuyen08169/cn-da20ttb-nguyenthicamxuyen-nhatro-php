@@ -13,10 +13,10 @@ include("header_admin.php");
                     <ion-icon name="add-outline"></ion-icon>
                     <p>Thêm phường</p>
                 </a>
-                <a href="#" class="button button-xtt">
+                <!-- <a href="#" class="button button-xtt">
                     <ion-icon name="trash-outline"></ion-icon>
                     <p>Xóa tất cả</p>
-                </a>
+                </a> -->
             </div>
         </div>
 
@@ -48,7 +48,7 @@ include("header_admin.php");
 
 
                         echo "<td class='bang'>
-                        <a href='sua.php?user=$usern'><ion-icon name='create-outline'></ion-icon></a> 
+                  
                         <a href='xoa_phuong.php?user=$usern'><ion-icon name='trash-outline'></ion-icon></a>
                         </td>";//Thêm cột sửa tương ứng + truyền biến user (chứa thông tin về tên đăng nhập) sang file sua.php
                         

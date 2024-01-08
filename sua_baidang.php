@@ -1,4 +1,3 @@
-
 <?php
 include("header_admin.php");
 
@@ -18,64 +17,91 @@ $row = mysqli_fetch_array($kq);
         <div class="top-center">
             <p> QUẢN LÝ NHÀ TRỌ</p>
         </div>
+        <div>
+            <label> Sữa bài đăng </label>
+        </div>
+
         <div class="table-center">
-            <label> sữa</label>
-        </div>
-
-        <div class="table">
-            <div> <label> Mã bài đăng: </label>
-                <input type="text" name="mabd" value="<?php echo $row["mabd"]; ?>" readonly>
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
+                    <div> <label> Mã bài đăng: </label>
+                        <input type="text" name="mabd" value="<?php echo $row["mabd"]; ?>" readonly>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="table">
-            <div> <label> Mã người dùng: </label>
-                <input type="text" name="mand" value="<?php echo $row["mand"]; ?>">
+        <div class="table-center">
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
+                    <div> <label> Mã người dùng: </label>
+                        <input type="text" name="mand" value="<?php echo $row["mand"]; ?>">
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="table">
-            <div> <label> Mã nhà trọ: </label>
-                <input type="text" name="mant" value="<?php echo $row["mant"]; ?>">
+        <div class="table-center">
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
+                    <div> <label> Mã nhà trọ: </label>
+                        <input type="text" name="mant" value="<?php echo $row["mant"]; ?>">
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="table">
-            <div> <label> Tên bài đăng: </label>
-                <input type="text" name="tenbd" value="<?php echo $row["tenbd"]; ?>">
-            </div>
-        </div>
-       
-
-        <div class="table">
-            <div> <label> Ảnh bài đăng: </label>
-                <input type="file" name="anhbd">
-                <input type="hidden" name="MAX_FILE_SIZE"value="100000">
-            </div>
-        </div>
-
-
-        <div class="table">
-            <div> <label> Ngày đăng: </label>
-                <input type="date" name="ngaydang" value="<?php echo $row["ngaydang"]; ?>">
-            </div>
-        </div>
-
-        
-        <div class="table">
-            <div> <label> Nội dung bài đăng: </label>
-                <input type="text" name="noidungbd" value="<?php echo $row["noidungbd"]; ?>">
+        <div class="table-center">
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
+                    <div> <label> Tên bài đăng: </label>
+                        <input type="text" name="tenbd" value="<?php echo $row["tenbd"]; ?>">
+                    </div>
+                </div>
             </div>
         </div>
 
 
-
-
-        <div class="table">
-
-            <input type="submit" name="luu" value="Lưu">
+        <div class="table-center">
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
+                    <div> <label> Ảnh bài đăng: </label>
+                        <input type="file" name="anhbd">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+                    </div>
+                </div>
+            </div>
         </div>
 
+
+
+        <div class="table-center">
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
+                    <div> <label> Ngày đăng: </label>
+                        <input type="date" name="ngaydang" value="<?php echo $row["ngaydang"]; ?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-center">
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
+                    <div> <label> Nội dung bài đăng: </label>
+                        <input type="text" name="noidungbd" value="<?php echo $row["noidungbd"]; ?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="txt-btn">
+            <input class="txt-btn-luu" type="submit" name="luu" value="Lưu lại" />
+            <input class="txt-btn-luu" type="reset" name="huy" value=" Hủy bỏ" href="qlbaidang.php" />
+        </div>
 
 
     </div>

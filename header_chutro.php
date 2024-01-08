@@ -18,7 +18,7 @@ if (!isset($_SESSION["chutro"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css_admin.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <title>Document</title>
+    <title>Chủ trọ </title>
 </head>
 <?php
 /////kết nối cơ sở dữ liệu 
@@ -41,13 +41,19 @@ if (!isset($_SESSION["chutro"])) {
             </div>
             <div class="s-left">
                 
-                    <p> Thông tin chủ nhà trọ</p>
+              
                 </a>
                 <a href="thongtin_nhatro.php" class="s-left-item">
                 <ion-icon name="business"></ion-icon>
                     <p>Nhà trọ</p>
                 </a>
+
+                <a href="dangtin.php" class="s-left-item">
+                <ion-icon name="newspaper"></ion-icon>
+                    <p> Bài đăng</p>
+                </a>
     
+
                 <a href="logout.php" class="s-left-item">
                     <ion-icon name="key"></ion-icon>
                     <p>Đăng xuất</p>

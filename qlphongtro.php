@@ -13,10 +13,10 @@ include("header_admin.php");
                     <ion-icon name="add-outline"></ion-icon>
                     <p>Thêm phòng trọ</p>
                 </a>
-                <a href="#" class="button button-xtt">
+                <!-- <a href="#" class="button button-xtt">
                     <ion-icon name="trash-outline"></ion-icon>
                     <p>Xóa tất cả</p>
-                </a>
+                </a> -->
             </div>
         </div>
 
@@ -25,14 +25,15 @@ include("header_admin.php");
                 <tr style="background-color:#CDD0CB; font-weight:600;">
                     <td width="3%"><input type="checkbox"></td>
                     <td width="10%">Mã <br>phòng trọ</td>
-                    <td width="13%">Mã trạng thái</td>
-                    <td width="12%">Mã loại</td>
-                    <td width="15%">Mã nhà trọ</td>
-                    <td width="7%">Mô tả </td>                    
+                    <td width="10%">Mã trạng thái</td>
+                    <td width="10%">Mã loại</td>
+                    <td width="10%">Mã nhà trọ</td>
+                    <td width="12%">Mô tả </td>                    
                     <td width="10%">Giá <br>phòng trọ</td>
                     <td width="11%">Diện tích</td>
-                    <td width="12%">Ghi chú </td>
-                    <td width="10%">Tính năng</td>
+                    <td width="10%">Ghi chú </td>
+                    <td width="15%"> Ảnh phòng trọ </td>
+                    <td width="12%">Tính năng</td>
 
 
                 </tr>
@@ -69,6 +70,8 @@ include("header_admin.php");
                         echo "<td class='bang'> ".$row["giapt"]."</td>";
                         echo "<td class='bang'>".$row["dientichpt"]."</td>";
                         echo "<td class='bang'>".$row["ghichu"]."</td>";
+                        echo "<td><img src= '".$row["anhpt"]."' height='50' width='50'></td>";
+                        
                         ///////////
 
 

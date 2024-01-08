@@ -13,10 +13,17 @@ include("header_admin.php");
                     <ion-icon name="add-outline"></ion-icon>
                     <p>Thêm tiện ích</p>
                 </a>
-                <a href="#" class="button button-xtt">
+
+                <a href="ql_chitiet_tienich.php" class="button button-them">
+                <ion-icon name="file-tray-stacked-outline"></ion-icon>
+                    <p> Chi tiết tiện ích</p>
+                </a>
+                <!-- <a href="#" class="button button-xtt">
                     <ion-icon name="trash-outline"></ion-icon>
                     <p>Xóa tất cả</p>
-                </a>
+                </a> -->
+
+
             </div>
         </div>
 
@@ -55,9 +62,9 @@ include("header_admin.php");
                         
                     }
                     ?>
-        
+
         </div>
-                </table>
+        </table>
     </div>
 
 </div>

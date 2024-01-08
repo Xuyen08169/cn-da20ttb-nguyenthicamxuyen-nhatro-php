@@ -29,9 +29,10 @@ include("header_chutro.php");
                     <td width="15%">Tên Nhà trọ</td>
                     <td width="15%">Tên chủ trọ</td>
                     <td width="15%">Số điện thoại nhà trọ</td>
-                    <td width="25%">Địa chỉ nhà trọ </td>                    
-                    <!-- <td width="10%">Tính năng</td>
-                </tr> -->
+                    <td width="25%">Địa chỉ nhà trọ </td>  
+                                      
+                    <td width="10%">Tính năng</td>
+                </tr>
                 <?php 
                     include("ketnoi.php");
                     $sql="select * from nhatro ";

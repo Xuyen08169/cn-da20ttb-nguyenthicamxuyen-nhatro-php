@@ -13,10 +13,10 @@ include("header_admin.php");
                     <ion-icon name="add-outline"></ion-icon>
                     <p>Thêm bài đăng</p>
                 </a>
-                <a href="#" class="button button-xtt">
+                <!-- <a href="#" class="button button-xtt">
                     <ion-icon name="trash-outline"></ion-icon>
                     <p>Xóa tất cả</p>
-                </a>
+                </a> -->
             </div>
         </div>
 

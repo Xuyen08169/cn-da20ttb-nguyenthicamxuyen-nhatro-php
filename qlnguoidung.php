@@ -13,10 +13,10 @@ include("header_admin.php");
                     <ion-icon name="add-outline"></ion-icon>
                     <p>Thêm người dùng</p>
                 </a>
-                <a href="#" class="button button-xtt">
+                <!-- <a href="#" class="button button-xtt">
                     <ion-icon name="trash-outline"></ion-icon>
                     <p>Xóa tất cả</p>
-                </a>
+                </a> -->
             </div>
         </div>
 
@@ -30,7 +30,7 @@ include("header_admin.php");
                     <td width="20%">Email</td>
                     <td width="15%">Mật khẩu</td>                    
                     <td width="15%">Hình đại diện</td>
-                    <td width="15%">Tính năng</td>
+                    <td width="20%">Tính năng</td>
 
 
                 </tr>

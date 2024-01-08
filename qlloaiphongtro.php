@@ -50,7 +50,7 @@ include("header_admin.php");
 
 
                         echo "<td class='bang'>
-                        <a href='sua_loaipt.php?user=$usern'><ion-icon name='create-outline'></ion-icon></a> 
+                 
                         <a href='xoa_loaipt.php?user=$usern'><ion-icon name='trash-outline'></ion-icon></a>
                         </td>";//Thêm cột sửa tương ứng + truyền biến user (chứa thông tin về tên đăng nhập) sang file sua.php
                         

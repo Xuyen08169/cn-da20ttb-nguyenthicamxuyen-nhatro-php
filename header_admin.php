@@ -17,7 +17,10 @@ if (!isset($_SESSION["admin"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css_admin.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <title>Document</title>
+    
+    <title>Admin</title>
+
+    
 </head>
 <?php
 /////kết nối cơ sở dữ liệu 
@@ -39,10 +42,10 @@ if (!isset($_SESSION["admin"])) {
                 <label><?php echo $admin_login["tenadmin"]; ?></label>
             </div>
             <div class="s-left">
-                <a href="#" class="s-left-item">
+                <!-- <a href="#" class="s-left-item">
                     <ion-icon name="home"></ion-icon>
                     <p>Trang chủ</p>
-                </a>
+                </a> -->
                 <a href="qlnhatro.php" class="s-left-item">
                 <ion-icon name="business"></ion-icon>
                     <p>Quản lý nhà trọ</p>

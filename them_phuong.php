@@ -11,21 +11,31 @@ include("header_admin.php");
         </div>
 
 
-        <div class="table">
+       
+        <div class="table-center">
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
             <div> <label> Mã phường: </label>
                 <input type="text" name="maphuong" readonly>
             </div>
         </div>
+            </div>
+        </div>
 
-        <div class="table">
+       
+        <div class="table-center">
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
             <div> <label> Tên phường: </label>
                 <input type="text" name="tenphuong">
             </div>
         </div>
+            </div>
+        </div>
 
-        <div class="table">
-
-            <input type="submit" name="luu" value="Lưu">
+        <div class="txt-btn">
+            <input class="txt-btn-luu" type="submit" name="luu" value="Lưu lại" />
+            <input class="txt-btn-luu" type="reset" name="huy" value=" Hủy bỏ" href="qlphuong.php" />
         </div>
 
 

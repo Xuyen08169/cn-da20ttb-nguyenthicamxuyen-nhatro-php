@@ -11,21 +11,31 @@ include("header_admin.php");
         </div>
 
 
-        <div class="table">
+        
+        <div class="table-center">
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
             <div> <label> Mã loại phòng trọ: </label>
                 <input type="text" name="maloai" readonly>
             </div>
         </div>
+            </div>
+        </div>
 
-        <div class="table">
+       
+        <div class="table-center">
+            <div class="txt-gv-top">
+                <div class="txt-gv-lb">
             <div> <label> Tên loại phòng: </label>
                 <input type="text" name="tenloai">
             </div>
         </div>
+            </div>
+        </div>
 
-        <div class="table">
-
-            <input type="submit" name="luu" value="Lưu">
+        <div class="txt-btn">
+            <input class="txt-btn-luu" type="submit" name="luu" value="Lưu lại" />
+            <input class="txt-btn-luu" type="reset" name="huy" value=" Hủy bỏ" href="qlloaiphongtro.php" />
         </div>
 
 

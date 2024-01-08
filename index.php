@@ -1,131 +1,313 @@
+        <?php
+        include("header.php");
+        include("ketnoi.php");
+        ?>
+        <div class="td-trc">
+            <label>Nhà trọ Trà Vinh</label>
+        </div>
+        <div class="full-trc">
+            <div class="trc-left">
+
+                <div class="trc-left-dt">
+
+            <?php
+                    // Assuming $conn is your database connection
+
+                    $sql = "SELECT * FROM phongtro WHERE dientichpt";
+
+                    $result = $conn->query($sql);
+
+                    // Generate HTML dynamically
+                    if ($result->num_rows > 0) {
+                        echo '<div class="trc-left-dientichpt">';
+                        echo '<label style="font-weight:600; color: #79AC78; font-size:18px;">Diện tích</label>';
+
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<a href="index.php?locdientich=' .$row["dientichpt"] . '"><ion-icon name="chevron-forward-outline"></ion-icon> ' . $row["dientichpt"] . '</a>';
+                        }
+
+                        echo '</div>';
+                    } else {
+                        echo "No records found based on the specified condition.";
+                    }
+                ?>
+        </div>
+
+        <!-- ------------------------------------------------------------------- -->
+
+
+        <div class=" trc-left-gia">
+
+            <?php
+                    // Assuming $conn is your database connection
+
+                    $sql = "SELECT * FROM phongtro WHERE giapt";
+
+                    $result = $conn->query($sql);
+
+                    // Generate HTML dynamically
+                    if ($result->num_rows > 0) {
+                        echo '<div class="trc-left-giapt">';
+                        echo '<label style="font-weight:600; color: #79AC78; font-size:18px;"> Giá phòng trọ</label>';
+
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<a href="index.php?locgiapt=' .$row["giapt"] . '"><ion-icon name="chevron-forward-outline"></ion-icon> ' . $row["giapt"] . '</a>';
+                        }
+
+                        echo '</div>';
+                    } else {
+                        echo "No records found based on the specified condition.";
+                    }
+                ?>
+        </div>
+        <!---------------------------------------------------------------------------------------->
+
+        <div class=" trc-left-loai">
+
+            <?php
+                    // Assuming $conn is your database connection
+
+                    $sql = "SELECT * FROM loaiphongtro";
+
+                    $result = $conn->query($sql);
+
+                    // Generate HTML dynamically
+                    if ($result->num_rows > 0) {
+                        echo '<div class="trc-left-loaiphongtro">';
+                        echo '<label style="font-weight:600; color: #79AC78; font-size:18px;"> Loại phòng trọ</label>';
+
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<a href="index.php?locloaipt=' .$row["maloai"] . '"><ion-icon name="chevron-forward-outline"></ion-icon> ' . $row["tenloai"] . '</a>';
+                        }
+
+                        echo '</div>';
+                    } else {
+                        echo "No records found based on the specified condition.";
+                    }
+                ?>
+        </div>
+        <!-- ------------------------------------------------------------------------------------------------- -->
+
+        <div>
+            <?php
+                    $sql = "SELECT * FROM phuong";
+                    $result = $conn->query($sql);
+                    
+                    // Generate HTML dynamically
+                    if ($result->num_rows > 0) {
+                        echo '<div class="trc-left-phuong">';
+                        echo '<label style="font-weight:600; color: #79AC78; font-size:18px;">Phường</label>';
+                        
+                    
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<a href="index.php?locphuong=' .$row["maphuong"] . '"><ion-icon name="chevron-forward-outline"></ion-icon> ' . $row["tenphuong"] . '</a>';
+                        }
+                    
+                        echo '</div>';
+                    } else {
+                        echo "No records found in the 'phuong' table.";
+                    }
+                ?>
+        </div>
+    </div>
+    <div class="trc-right">
+        <!-- ------------------------------------------------------------------------------------------------------ -->
+
+        <!-- Phần này là lọc diện tích -->
+
+        <?php 
+            if(!isset($_REQUEST["locdientich"]) && !isset($_REQUEST["locgiapt"]) && !isset($_REQUEST["locloaipt"]) && !isset($_REQUEST["locphuong"]))
+            {
+                $sql_tongbd = "SELECT * FROM baidang";
+                $result_tongbd = $conn->query($sql_tongbd); 
+                        // Generate HTML dynamically
+                if ($result_tongbd->num_rows > 0) {
+                    while ($row_tongbd = $result_tongbd->fetch_assoc()) {
+                        echo " <a class='bd' href='noidung_pt.php?baidang=" . $row_tongbd["mabd"] . "'>
+                                <div class='bd-img'>
+                                    <img src='".$row_tongbd["anhbd"]."' width='200px' height='150px'>
+                                </div>
+                                <div class='bd-tt'>
+                                    <label style='color: #C21010; font-weight:600; font-size: 18px;'>".$row_tongbd["tenbd"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>".$row_tongbd["ngaydang"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>".$row_tongbd["noidungbd"]."</label>
+                                </div>
+                            </a>";
+                    }            
+                } else {
+                            echo "No records found in the 'baidang' table.";
+                        }
+            } else if (isset($_REQUEST["locdientich"]) && !isset($_REQUEST["locgiapt"])){
+                $dientich = $_REQUEST["locdientich"];
+                //Bước 1. lấy tất cả phòng trọ có diện tích cần lọc
+                $sql_phongtro = "SELECT * FROM phongtro WHERE dientichpt = '" . $dientich . "'";
+                $kq_phongtro = mysqli_query($conn, $sql_phongtro) or die ("Không thể xuất thông tin phòng trọ ".mysqli_error($conn));
+                //nếu có phòng trọ 
+                if ($kq_phongtro) {
+                    //trong khi có phòng trọ trong danh sách
+                    //Bước 2. Lấy các mã nhà trọ chứa phòng trọ đó
+                    //tạo mảng chứa danh sách các mã phòng trọ
+                    $array_manhatro = array();
+                    while ($row_phongtro = $kq_phongtro->fetch_assoc()) {
+                        $manhatro = $row_phongtro["mant"];
+                        // Thêm mã phòng trọ vào mảng
+                        $array_manhatro[] = $manhatro;
+                    }
+                    // Loại bỏ các mã nhà trọ trùng lặp
+                    $unique_array_manhatro = array_unique($array_manhatro);
+                    
+                    //Bước 3. Lấy các bài đăng của các nhà trọ đó
+                    foreach ($array_manhatro as $mant) {
+                        
+                        $sql_baidang = "SELECT * FROM baidang WHERE mant ='".$mant."'";
+                        $result_baidang = $conn->query($sql_baidang);
+                        //nếu có bài đăng
+                        if ($result_baidang->num_rows > 0) {
+                            while ($row_baidang = $result_baidang->fetch_assoc()) {
+                                echo" <a class='bd' href='noidung_pt.php?baidang=" . $row_baidang["mabd"] . "'>
+                                <div class='bd-img'>
+                                    <img src='".$row_baidang["anhbd"]."' width='200px' height='150px'>
+                                </div>
+                                <div class='bd-tt'>
+                                    <label style='color: #C21010; font-weight:600; font-size: 18px;'>".$row_baidang["tenbd"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>".$row_baidang["ngaydang"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>".$row_baidang["noidungbd"]."</label>
+                                </div>
+                            </a>";
+                            }
+                        }
+                    }
+                    
+                }
+                 
+
+            }else if (isset($_REQUEST["locgiapt"])){
+                $giapt = $_REQUEST["locgiapt"];
+                $sql_phongtro = "SELECT * FROM phongtro WHERE giapt = '" . $giapt . "'";
+                $kq_phongtro = mysqli_query($conn, $sql_phongtro) or die ("Không thể xuất thông tin phòng trọ ".mysqli_error($conn));
+                //nếu có phòng trọ 
+                if ($kq_phongtro) {
+                    //trong khi có phòng trọ trong danh sách
+                    //Bước 2. Lấy các mã nhà trọ chứa phòng trọ đó
+                    //tạo mảng chứa danh sách các mã phòng trọ
+                    $array_manhatro = array();
+                    while ($row_phongtro = $kq_phongtro->fetch_assoc()) {
+                        $manhatro = $row_phongtro["mant"];
+                        // Thêm mã phòng trọ vào mảng
+                        $array_manhatro[] = $manhatro;
+                    }
+                    // Loại bỏ các mã nhà trọ trùng lặp
+                    $unique_array_manhatro = array_unique($array_manhatro);
+                    //Bước 3. Lấy các bài đăng của các nhà trọ đó
+                    foreach ($array_manhatro as $mant) {
+                        $sql_baidang = "SELECT * FROM baidang WHERE mant ='".$mant."'";
+                        $result_baidang = $conn->query($sql_baidang);
+                        //nếu có bài đăng
+                        if ($result_baidang->num_rows > 0) {
+                            while ($row_baidang = $result_baidang->fetch_assoc()) {
+                                echo" <a class='bd' href='noidung_pt.php?baidang=" . $row_baidang["mabd"] . "'>
+                                <div class='bd-img'>
+                                    <img src='".$row_baidang["anhbd"]."' width='200px' height='150px'>
+                                </div>
+                                <div class='bd-tt'>
+                                    <label style='color: #C21010; font-weight:600; font-size: 18px;'>".$row_baidang["tenbd"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>".$row_baidang["ngaydang"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>".$row_baidang["noidungbd"]."</label>
+                                </div>
+                            </a>";
+                            }
+                        }
+                    }
+                    
+                }
+                 
+
+            }else if (isset($_REQUEST["locloaipt"])){
+                $maloai = $_REQUEST["locloaipt"];
+                $sql_phongtro = "SELECT * FROM phongtro WHERE maloai = '" . $maloai . "'";
+                $kq_phongtro = mysqli_query($conn, $sql_phongtro) or die ("Không thể xuất thông tin phòng trọ ".mysqli_error($conn));
+                //nếu có phòng trọ 
+                if ($kq_phongtro) {
+                    //trong khi có phòng trọ trong danh sách
+                    //Bước 2. Lấy các mã nhà trọ chứa phòng trọ đó
+                    //tạo mảng chứa danh sách các mã phòng trọ
+                    $array_manhatro = array();
+                    while ($row_phongtro = $kq_phongtro->fetch_assoc()) {
+                        $manhatro = $row_phongtro["mant"];
+                        // Thêm mã phòng trọ vào mảng
+                        $array_manhatro[] = $manhatro;
+                    }
+                    // Loại bỏ các mã nhà trọ trùng lặp
+                    $unique_array_manhatro = array_unique($array_manhatro);
+                    //Bước 3. Lấy các bài đăng của các nhà trọ đó
+                    foreach ($array_manhatro as $mant) {
+                        $sql_baidang = "SELECT * FROM baidang WHERE mant ='".$mant."'";
+                        $result_baidang = $conn->query($sql_baidang);
+                        //nếu có bài đăng
+                        if ($result_baidang->num_rows > 0) {
+                            while ($row_baidang = $result_baidang->fetch_assoc()) {
+                                echo" <a class='bd' href='noidung_pt.php?baidang=" . $row_baidang["mabd"] . "'>
+                                <div class='bd-img'>
+                                    <img src='".$row_baidang["anhbd"]."' width='200px' height='150px'>
+                                </div>
+                                <div class='bd-tt'>
+                                    <label style='color: #C21010; font-weight:600; font-size: 18px;'>".$row_baidang["tenbd"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>".$row_baidang["ngaydang"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>".$row_baidang["noidungbd"]."</label>
+                                </div>
+                            </a>";
+                            }
+                        
+                    }
+                    
+                }
+            } 
+
+            }else if (isset($_REQUEST["locphuong"])){
+                $maphuong = $_REQUEST["locphuong"];
+                $sql_nhatro = "SELECT * FROM nhatro WHERE maphuong = '" . $maphuong . "'";
+                $kq_nhatro = mysqli_query($conn, $sql_nhatro) or die ("Không thể xuất thông tin phòng trọ ".mysqli_error($conn));
+               
+                if ($kq_nhatro) {
+                    while ($row_nhatro = $kq_nhatro->fetch_assoc()) {
+                        $mant = $row_nhatro["mant"];
+                        $sql_baidang = "SELECT * FROM baidang WHERE mant ='".$mant."'";
+                        $result_baidang = $conn->query($sql_baidang);
+                        //nếu có bài đăng
+                        if ($result_baidang->num_rows > 0) {
+                            while ($row_baidang = $result_baidang->fetch_assoc()) {
+                                echo"<a class='bd' href='noidung_pt.php?baidang=" . $row_baidang["mabd"] . "'>
+                                <div class='bd-img'>
+                                    <img src='".$row_baidang["anhbd"]."' width='200px' height='150px'>
+                                </div>
+                                <div class='bd-tt'>
+                                    <label style='color: #C21010; font-weight:600; font-size: 18px;'>".$row_baidang["tenbd"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>".$row_baidang["ngaydang"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>".$row_baidang["noidungbd"]."</label>
+                                </div>
+                            </a>";
+                            }
+                       
+                    }
+                } 
+                }
+                 
+
+            }         
+        ?>
+        <!-- hết một phần lọc -->
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
 <?php
-session_start();
-if (!isset($_SESSION["nguoidung"])) {
-    echo "<script language=javascript>
-    alert('Bạn không có quyền trên trang này!'); 
-    window.location='login.php';
-    </script>";
-}
+include("footer.php");
 ?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cs_index.css">
-    <title> Quản lý nhà trọ</title>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-
-
-
-</head>
-
-<body>
-    <div class="t1">
-
-
-        <h1>
-            <font color="blue">Quản Lý Nhà Trọ
-        </h1>
-
-
-        <div>
-
-            <font color="#FF0000">
-                <marquee>Tìm nhà trọ cấp tốc ! uy tính, chất lượng</marquee>
-            </font>
-
-        </div>
-
-        <div>
-            <input class="input" type="type" placeholder="Tìm kiếm..." />
-        </div>
-
-        <div class="menu">
-            <div class=" dropdown">
-                <ion-icon name="home-outline"></ion-icon>
-                <a class=" dropbtn" href="#">Trang chủ</a>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn"> Diện tích </button>
-                <div class="dropdown-content">
-                    <a href="#"> Phòng 10m2</a>
-                    <a href="#"> Phòng 15m2</a>
-                    <a href="#"> Phòng 20m2</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn"> Giá nhà trọ</button>
-                <div class="dropdown-content">
-                    <a href="#"> 500 ngìn - 700 nghìn</a>
-                    <a href="#"> 700 nghìn - 1 triệu </a>
-                    <a href="#"> 1 triệu - 1 triệu 500 nghìn</a>
-                </div>
-
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn"> Loại phòng trọ</button>
-                <div class="dropdown-content">
-                    <a href="#"> Có gác lửng</a>
-                    <a href="#"> Không có gác </a>
-                    <!-- <a href="#"> loại ngon nhất</a> -->
-                </div>
-
-            </div>
-
-
-            <div class="dropdown">
-                <button class="dropbtn">Phường </button>
-                <div class="dropdown-content">
-                    <a href="#"> Phường 1</a>
-                    <a href="#"> Phường 2</a>
-                    <a href="#"> Phường 3</a>
-                    <a href="#"> Phường 4</a>
-                    <a href="#"> Phường 5</a>
-                    <a href="#"> Phường 6</a>
-                    <a href="#"> Phường 7</a>
-                    <a href="#"> Phường 8</a>
-                    <a href="#"> Phường 9</a>
-                </div>
-
-            </div>
-
-            <div class=" dropdown">
-                <ion-icon name="information-circle-outline"></ion-icon>
-                <a class=" dropbtn" href="#">Hỗ trợ </a>
-            </div>
-
-
-        </div>
-
-
-
-
-
-
-
-    </div>
-
-    <div class="ct">
-
-
-    </div>
-
-
-</body>
-
-
-
-
-<!-- <div class="footer">
-    <p>Bản quyền thuộc @CemXien</p>
-</div> -->
-
-</html>

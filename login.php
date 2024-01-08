@@ -32,9 +32,14 @@
                     <label for="remember_pw">Nhớ mật khẩu</label>
                 </div>
                 <button type="submit" name="dn">Đăng nhập</button>
+                
             </form>
+            <div class="login_input">
+            <a href="dangky.php">Đăng ký</a>
+            <div>
         </div>
         
+      
 
     </div>
 </body>
