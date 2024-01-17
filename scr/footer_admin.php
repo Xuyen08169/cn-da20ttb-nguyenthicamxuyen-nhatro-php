@@ -4,7 +4,7 @@
                         <!-- foter -->
                         </div>
                     <div class="footer">
-                        <p>Bản quyền thuộc @CemXien</p>
+                        <p>Bản quyền thuộc @Xuyen Nguyen</p>
                     </div>
                 </div>
             </div>

@@ -1,26 +1,33 @@
 <?php
 include("header_admin.php");
+
+
+include("ketnoi.php");
+
+$usern=$_REQUEST["user"]; //Nhận giá trị user từ link sửa của quantri.php
+
+$sql = "SELECT * FROM phongtro WHERE mapt = '".$usern."'";
+$kq = mysqli_query($conn, $sql) or die("Không thể xuất thông tin phòng trọ" . mysqli_error());
+$row = mysqli_fetch_array($kq);
 ?>
 
-<head>
-    <script src="ckeditor/ckeditor.js"></script>
 
-</head>
-<form enctype="multipart/form-data" action="xuly_them_phongtro.php" name="them" method="post">
+
+
+<form enctype="multipart/form-data" action="xuly_sua_phongtro.php" name="them" method="post">
     <div>
         <div class="top-center">
             <p> QUẢN LÝ NHÀ TRỌ</p>
         </div>
-        <div class="table-center">
-            <label> Thêm phòng trọ</label>
+        <div class="top-center">
+            <h3> Sữa phòng trọ</h3>
         </div>
-
 
         <div class="table-center">
             <div class="txt-gv-top">
                 <div class="txt-gv-lb">
                     <div> <label> Mã phòng trọ: </label>
-                        <input type="text" name="mapt" readonly>
+                        <input type="text" name="mapt" value="<?php echo $row["mapt"]; ?>" readonly>
                     </div>
                 </div>
             </div>
@@ -34,10 +41,12 @@ include("header_admin.php");
                             <?php
                 $sql = "SELECT matt, tentt FROM trangthai";
                 $kq = mysqli_query($conn, $sql) or die("Không thể thêm trạng thái: " . mysqli_error($conn));
-                while ($row = mysqli_fetch_assoc($kq)) {
-                    $matt = $row['matt'];
-                    $tentt = $row['tentt'];
-                    echo "<option value=\"$matt\">$tentt</option>";
+                while ($row_tt = mysqli_fetch_assoc($kq)) {
+                    $matt = $row_tt['matt'];
+                    $tentt = $row_tt['tentt'];
+                    $selected = ($matt == $row["matt"]) ? "selected" : "";
+                    echo "<option value=\"$matt\" $selected>$tentt</option>";
+                    
                     }
                 ?>
                         </select>
@@ -49,15 +58,17 @@ include("header_admin.php");
         <div class="table-center">
             <div class="txt-gv-top">
                 <div class="txt-gv-lb">
-                    <div> <label> Mã loại: </label>
+                    <div> <label> Mã loai: </label>
                         <select name="maloai">
                             <?php
                 $sql = "SELECT maloai, tenloai FROM loaiphongtro";
                 $kq = mysqli_query($conn, $sql) or die("Không thể thêm loại phòng trọ: " . mysqli_error($conn));
-                while ($row = mysqli_fetch_assoc($kq)) {
-                    $maloai = $row['maloai'];
-                    $tenloai= $row['tenloai'];
-                    echo "<option value=\"$maloai\">$tenloai</option>";
+                while ($row_loai = mysqli_fetch_assoc($kq)) {
+                    $maloai = $row_loai['maloai'];
+                    $tenloai = $row_loai['tenloai'];
+                    $selected = ($maloai == $row["maloai"]) ? "selected" : "";
+                    echo "<option value=\"$maloai\" $selected>$tenloai</option>";
+                    
                     }
                 ?>
                         </select>
@@ -65,6 +76,7 @@ include("header_admin.php");
                 </div>
             </div>
         </div>
+
 
         <div class="table-center">
             <div class="txt-gv-top">
@@ -74,10 +86,12 @@ include("header_admin.php");
                             <?php
                 $sql = "SELECT mant, tennt FROM nhatro";
                 $kq = mysqli_query($conn, $sql) or die("Không thể thêm nhà trọ: " . mysqli_error($conn));
-                while ($row = mysqli_fetch_assoc($kq)) {
-                    $mant = $row['mant'];
-                    $tennt = $row['tennt'];
-                    echo "<option value=\"$mant\">$tennt</option>";
+                while ($row_nt = mysqli_fetch_assoc($kq)) {
+                    $mant = $row_nt['mant'];
+                    $tennt = $row_nt['tennt'];
+                    $selected = ($mant == $row["mant"]) ? "selected" : "";
+                    echo "<option value=\"$mant\" $selected>$tennt</option>";
+                    
                     }
                 ?>
                         </select>
@@ -91,10 +105,7 @@ include("header_admin.php");
             <div class="txt-gv-top">
                 <div class="txt-gv-lb">
                     <div> <label> Mô tả: </label>
-                        <textarea name="mota" id="editor1"></textarea>
-                        <script>
-                        CKEDITOR.replace('editor1');
-                        </script>
+                        <input type="text" name="mota" value="<?php echo $row["mota"]; ?>">
                     </div>
                 </div>
             </div>
@@ -103,19 +114,32 @@ include("header_admin.php");
         <div class="table-center">
             <div class="txt-gv-top">
                 <div class="txt-gv-lb">
-                    <div> <label> Giá phòng trọ: </label>
-                        <input type="text" name="giapt">
-                    </div>
+                    <div> <label> giapt </label>
+                    <select name="giapt">
+                        <option value="750.000" <?php echo ($row["giapt"] == "750.000") ? "selected" : ""; ?>>750.000</option>
+                        <option value="850.000" <?php echo ($row["giapt"] == "850.000") ? "selected" : ""; ?>>850.000</option>
+                        <option value="1.000.000" <?php echo ($row["giapt"] == "1.000.000") ? "selected" : ""; ?>>1.000.000</option>
+                        <option value="1.200.000" <?php echo ($row["giapt"] == "1.200.000") ? "selected" : ""; ?>>1.200.000</option>
+                    
+                    </select>
+                        <!-- <input type="text" name="giapt" value="<?php echo $row["giapt"]; ?>">
+                    </div> -->
                 </div>
             </div>
         </div>
-
 
         <div class="table-center">
             <div class="txt-gv-top">
                 <div class="txt-gv-lb">
                     <div> <label> Diện tích phòng trọ: </label>
-                        <input type="text" name="dientichpt">
+                    <select name="dientichpt">
+                        <option value="10m2" <?php echo ($row["dientichpt"] == "10m2") ? "selected" : ""; ?>>10m2</option>
+                        <option value="15m2" <?php echo ($row["dientichpt"] == "15m2") ? "selected" : ""; ?>>15m2</option>
+                        <option value="20m2" <?php echo ($row["dientichpt"] == "20m2") ? "selected" : ""; ?>>20m2</option>
+                        <option value="25m2" <?php echo ($row["dientichpt"] == "25m2") ? "selected" : ""; ?>>25m2</option>
+                    </select>
+
+                        <!-- <input type="text" name="dientichpt" value="<?php echo $row["dientichpt"]; ?>"> -->
                     </div>
                 </div>
             </div>
@@ -126,7 +150,7 @@ include("header_admin.php");
             <div class="txt-gv-top">
                 <div class="txt-gv-lb">
                     <div> <label> Ghi chú: </label>
-                        <input type="text" name="ghichu">
+                        <input type="text" name="ghichu" value="<?php echo $row["ghichu"]; ?>">
                     </div>
                 </div>
             </div>
@@ -149,14 +173,10 @@ include("header_admin.php");
             <input class="txt-btn-luu" type="reset" name="huy" value=" Hủy bỏ" href="qlphongtro.php" />
         </div>
 
+
+
     </div>
-
-
-
-
 </form>
-
-
 <?php
 include("footer_admin.php");
 ?>

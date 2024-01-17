@@ -25,8 +25,8 @@ include("header_admin.php");
                 <tr style="background-color:#CDD0CB; font-weight:600;">
                     <td width="3%"><input type="checkbox"></td>
                     <td width="10%">Mã <br>bài đăng</td>
-                    <td width="13%">Mã người dùng</td>
-                    <td width="12%">Mã nhà trọ</td>
+                    <!-- <td width="10%">Mã người dùng</td> -->
+                    <td width="14%">Mã nhà trọ</td>
                     <td width="15%">Tên bài đăng</td>
                     <td width="7%">Ảnh </td>                    
                     <td width="10%">Ngày đăng</td>
@@ -41,10 +41,10 @@ include("header_admin.php");
                     $kq=mysqli_query($conn,$sql) or die ("Không thể xuất thông tin người dùng ".mysqli_error()); 
                     while($row=mysqli_fetch_array($kq))
                     {
-                        $nguoidungs = $row["mand"];//////////nếu không có khóa ngoại thì ko cần dùng đến
-                        $sql2 = "SELECT * FROM nguoidung WHERE mand='" . $nguoidungs . "'";
-                        $kq2 = mysqli_query($conn, $sql2) or die("Không thể xuất thông tin người dùng " . mysqli_error());
-                        $nguoidung = mysqli_fetch_array($kq2);
+                        // $nguoidungs = $row["mand"];//////////nếu không có khóa ngoại thì ko cần dùng đến
+                        // $sql2 = "SELECT * FROM nguoidung WHERE mand='" . $nguoidungs . "'";
+                        // $kq2 = mysqli_query($conn, $sql2) or die("Không thể xuất thông tin người dùng " . mysqli_error());
+                        // $nguoidung = mysqli_fetch_array($kq2);
 
                         $nhatros = $row["mant"];
                         $sql3 = "SELECT * FROM nhatro WHERE mant='" . $nhatros . "'";
@@ -55,11 +55,11 @@ include("header_admin.php");
                         echo"<td width='3%'><input type='checkbox'></td>";
                         echo "<td> ".$row["mabd"]."</td>";
                         $usern=$row["mabd"]; // Gán dữ liệu cột username vào biến $usern echo "<td> ".$row["password"]."</td>";
-                        echo "<td> " . $nguoidung["tennd"] . "</td>";/// khóa ngoại
+                        // echo "<td> " . $nguoidung["tennd"] . "</td>";/// khóa ngoại
                         echo "<td> " . $nhatro["tennt"] . "</td>";///
                         echo "<td class='bang'> ".$row["tenbd"]."</td>";
                         echo "<td><img src= '".$row["anhbd"]."' height='50' width='50'></td>";
-                        echo "<td class='bang'>".$row["ngaydang"]."</td>";
+                        echo "<td class='bang'>" . date('d/m/Y', strtotime($row["ngaydang"])) . "</td>";
                         echo "<td class='bang'>".$row["noidungbd"]."</td>";
                         ///////////
 

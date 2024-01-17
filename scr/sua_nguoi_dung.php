@@ -17,8 +17,8 @@ $row = mysqli_fetch_array($kq);
         <div class="top-center">
             <p> QUẢN LÝ NHÀ TRỌ</p>
         </div>
-        <div>
-            <label> Sữa người dùng</label>
+        <div class="top-center">
+            <h3> Sữa người dùng</h3>
         </div>
 
         <div class="table-center">

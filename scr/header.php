@@ -67,14 +67,26 @@ if ($userlogin) {
 
             <div class="full-tt">
                 <div class="tk">
-                    <div>
-                        <input type="text" value="tìm kiếm ở đây nè!">
-                    </div>
+
+
+                     <form action="" method="GET" class="btn-center-search">
+                     
+                    <input type="text" name="search_name" placeholder="Tìm kiếm tên nhà trọ" required>
+                       
+
+                    <button type="submit">
+                       
+                    </button>
+                </form>
+
+
+
                     <div>
                         <label>
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
+
                 </div>
                 <div class="tk-trc">
                     <a href="index.php">

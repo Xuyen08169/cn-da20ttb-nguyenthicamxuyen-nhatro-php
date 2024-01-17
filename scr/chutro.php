@@ -1,7 +1,7 @@
 <?php
 include("header_chutro.php");
 ?>
-<p> kaakakakak</p>
+<p> QUẢN LÝ NHÀ TRỌ</p>
 <?php
 include("footer_chutro.php");
 ?>

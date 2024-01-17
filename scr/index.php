@@ -10,55 +10,51 @@
 
                 <div class="trc-left-dt">
 
-            <?php
-                    // Assuming $conn is your database connection
+                <?php
+                    // Array of predefined dienTich values
+                    $dienTichValues = array('10m2', '15m2', '20m2','25m2');
 
-                    $sql = "SELECT * FROM phongtro WHERE dientichpt";
+                    // Generate HTML dynamically for the filter options
+                    echo '<div class="trc-left-dientichpt">';
+                    echo '<label style="font-weight:600; color: #79AC78; font-size:18px;">Diện tích</label>';
 
-                    $result = $conn->query($sql);
-
-                    // Generate HTML dynamically
-                    if ($result->num_rows > 0) {
-                        echo '<div class="trc-left-dientichpt">';
-                        echo '<label style="font-weight:600; color: #79AC78; font-size:18px;">Diện tích</label>';
-
-                        while ($row = $result->fetch_assoc()) {
-                            echo '<a href="index.php?locdientich=' .$row["dientichpt"] . '"><ion-icon name="chevron-forward-outline"></ion-icon> ' . $row["dientichpt"] . '</a>';
-                        }
-
-                        echo '</div>';
-                    } else {
-                        echo "No records found based on the specified condition.";
+                    foreach ($dienTichValues as $dienTich) {
+                        echo '<a href="index.php?locdientich=' . $dienTich . '"><ion-icon name="chevron-forward-outline"></ion-icon> ' . $dienTich . '</a>';
                     }
-                ?>
+
+                    echo '</div>';
+
+
+
+?>
+
+
         </div>
 
         <!-- ------------------------------------------------------------------- -->
 
 
         <div class=" trc-left-gia">
+        <?php
+// Array of predefined giapt values
+            $giaptValues = array('750.000', '850.000', '1.000.000', '1.200.000');
 
-            <?php
-                    // Assuming $conn is your database connection
+            // Generate HTML dynamically for the filter options
+            echo '<div class="trc-left-giapt">';
+            echo '<label style="font-weight:600; color: #79AC78; font-size:18px;"> Giá phòng trọ</label>';
 
-                    $sql = "SELECT * FROM phongtro WHERE giapt";
+            foreach ($giaptValues as $giapt) {
+                // Use raw values in the URL
+                echo '<a href="index.php?locgiapt=' . $giapt . '"><ion-icon name="chevron-forward-outline"></ion-icon> ' . $giapt . '</a>';
+            }
 
-                    $result = $conn->query($sql);
+            echo '</div>';
 
-                    // Generate HTML dynamically
-                    if ($result->num_rows > 0) {
-                        echo '<div class="trc-left-giapt">';
-                        echo '<label style="font-weight:600; color: #79AC78; font-size:18px;"> Giá phòng trọ</label>';
 
-                        while ($row = $result->fetch_assoc()) {
-                            echo '<a href="index.php?locgiapt=' .$row["giapt"] . '"><ion-icon name="chevron-forward-outline"></ion-icon> ' . $row["giapt"] . '</a>';
-                        }
 
-                        echo '</div>';
-                    } else {
-                        echo "No records found based on the specified condition.";
-                    }
-                ?>
+            ?>
+
+
         </div>
         <!---------------------------------------------------------------------------------------->
 
@@ -118,7 +114,14 @@
         <?php 
             if(!isset($_REQUEST["locdientich"]) && !isset($_REQUEST["locgiapt"]) && !isset($_REQUEST["locloaipt"]) && !isset($_REQUEST["locphuong"]))
             {
-                $sql_tongbd = "SELECT * FROM baidang";
+                if (isset($_GET['search_name'])) {
+                    $search_name = $_GET['search_name'];
+                    $sql_tongbd = "SELECT * FROM baidang WHERE tenbd LIKE '%$search_name%'";
+                } else {
+                    $sql_tongbd = "SELECT * FROM baidang";
+                }
+
+            
                 $result_tongbd = $conn->query($sql_tongbd); 
                         // Generate HTML dynamically
                 if ($result_tongbd->num_rows > 0) {
@@ -129,7 +132,8 @@
                                 </div>
                                 <div class='bd-tt'>
                                     <label style='color: #C21010; font-weight:600; font-size: 18px;'>".$row_tongbd["tenbd"]."</label>
-                                    <label style='color: gray; font-size: 15px;'>".$row_tongbd["ngaydang"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>" . date('d/m/Y', strtotime($row_tongbd["ngaydang"])) . "</label>
+
                                     <label style='color: gray; font-size: 15px;'>".$row_tongbd["noidungbd"]."</label>
                                 </div>
                             </a>";
@@ -170,7 +174,7 @@
                                 </div>
                                 <div class='bd-tt'>
                                     <label style='color: #C21010; font-weight:600; font-size: 18px;'>".$row_baidang["tenbd"]."</label>
-                                    <label style='color: gray; font-size: 15px;'>".$row_baidang["ngaydang"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>" . date('d/m/Y', strtotime($row_baidang["ngaydang"])) . "</label>
                                     <label style='color: gray; font-size: 15px;'>".$row_baidang["noidungbd"]."</label>
                                 </div>
                             </a>";
@@ -211,7 +215,7 @@
                                 </div>
                                 <div class='bd-tt'>
                                     <label style='color: #C21010; font-weight:600; font-size: 18px;'>".$row_baidang["tenbd"]."</label>
-                                    <label style='color: gray; font-size: 15px;'>".$row_baidang["ngaydang"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>" . date('d/m/Y', strtotime($row_baidang["ngaydang"])) . "</label>
                                     <label style='color: gray; font-size: 15px;'>".$row_baidang["noidungbd"]."</label>
                                 </div>
                             </a>";
@@ -252,7 +256,7 @@
                                 </div>
                                 <div class='bd-tt'>
                                     <label style='color: #C21010; font-weight:600; font-size: 18px;'>".$row_baidang["tenbd"]."</label>
-                                    <label style='color: gray; font-size: 15px;'>".$row_baidang["ngaydang"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>" . date('d/m/Y', strtotime($row_baidang["ngaydang"])) . "</label>
                                     <label style='color: gray; font-size: 15px;'>".$row_baidang["noidungbd"]."</label>
                                 </div>
                             </a>";
@@ -282,7 +286,7 @@
                                 </div>
                                 <div class='bd-tt'>
                                     <label style='color: #C21010; font-weight:600; font-size: 18px;'>".$row_baidang["tenbd"]."</label>
-                                    <label style='color: gray; font-size: 15px;'>".$row_baidang["ngaydang"]."</label>
+                                    <label style='color: gray; font-size: 15px;'>" . date('d/m/Y', strtotime($row_tongbd["ngaydang"])) . "</label>
                                     <label style='color: gray; font-size: 15px;'>".$row_baidang["noidungbd"]."</label>
                                 </div>
                             </a>";

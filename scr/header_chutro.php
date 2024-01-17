@@ -47,12 +47,12 @@ if (!isset($_SESSION["chutro"])) {
                 <ion-icon name="business"></ion-icon>
                     <p>Nhà trọ</p>
                 </a>
-
+<!-- 
                 <a href="dangtin.php" class="s-left-item">
                 <ion-icon name="newspaper"></ion-icon>
                     <p> Bài đăng</p>
                 </a>
-    
+     -->
 
                 <a href="logout.php" class="s-left-item">
                     <ion-icon name="key"></ion-icon>

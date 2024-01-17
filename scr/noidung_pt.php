@@ -28,7 +28,9 @@ include("ketnoi.php");
                     echo '<h2>' . htmlspecialchars($row["tenbd"]) . '</h2>';
                     echo '<p>' . htmlspecialchars($row["noidungbd"]) . '</p>';
                     echo '<img src="' . $row["anhbd"] . '" alt="Hình ảnh baidang">';
-                    echo '<p>Ngày đăng: ' . $row["ngaydang"] . '</p>';
+                    
+                    echo '<p>Ngày đăng: ' . date('d/m/Y', strtotime($row["ngaydang"])) . '</p>';
+
                     echo '</div>';
                 }
             } else {

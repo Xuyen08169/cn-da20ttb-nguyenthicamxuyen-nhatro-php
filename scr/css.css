@@ -147,7 +147,7 @@
     border-radius: 5px;
     width: 200px;
     border: 1px solid black;
-    color: lightgrey;
+    color: black;
     text-align: center;
 }
 
@@ -229,7 +229,18 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+
 }
+
+.trc-left-dientichpt a,
+.trc-left-giapt a,
+.trc-left-loaiphongtro a,
+.trc-left-phuong a{
+   text-decoration: none;
+
+
+}
+
 
 .full-bd {
     margin: 0 auto;
@@ -244,6 +255,7 @@
     /* border: 1px solid #79AC78; */
     border-radius: 6px;
     background-color: #F5F7F8;
+    text-decoration: none;
 }
 
 
@@ -265,6 +277,10 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.bd-tt label{
+    text-decoration: none;
 }
 
 .td-nt {
@@ -386,7 +402,7 @@
 }
 
 .ttnt-left{
-    width: 30%;
+    width: 45%;
     background-color: #BFD8D5;
     display: flex;
     flex-direction: column;
@@ -462,4 +478,11 @@
 display: flex;
 flex-direction: column;
 
+}
+.baidang img{
+    padding: 10px 0px;
+    width: 800px;
+    height: 450px;
+    display: block;
+    margin: 0 auto;
 }
